@@ -26,7 +26,7 @@ fi
 
 
 # Change directory
-cd ..
+cd ../../
 
 # Scrift
 
