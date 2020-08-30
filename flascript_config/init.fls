@@ -1,12 +1,10 @@
-#checkroot ->
+#checksystem ->
 	if[var(system) -> check[uname -s] <- (==) var(string) -> FreeBSD <-] -> {
 		print(string) -> "FreeBSD"
 		executepp("Config", "pkg install git gcc firefox krita gmake redshift")
-	} else -> {
-		print(string) -> "NOTE: Do not use this with user permission status."
 		print(newline)
 	} <-
-#checkroot <-
+#checksystem <-
 
 
 #checkroot ->
@@ -21,6 +19,7 @@
 
 main() -> main {
 	statement[#checkroot]
+	statement[#checksystem]
 
 	print(string) -> "Clone Scrift."
 	exec(system -> git clone https://github.com/ferhatgec/scrift.git ->)
