@@ -1,0 +1,55 @@
+#checkroot ->
+	if[var(system) -> check[uname -s] <- (==) var(string) -> FreeBSD <-] -> {
+		print(string) -> "FreeBSD"
+		executepp("Config", "pkg install git gcc firefox krita gmake redshift")
+	} else -> {
+		print(string) -> "NOTE: Do not use this with user permission status."
+		print(newline)
+	} <-
+#checkroot <-
+
+
+#checkroot ->
+	if[var(system) -> check[whoami] <- (==) var(string) -> root <-] -> {
+		print(string) -> "Nice."
+		print(newline)
+	} else -> {
+		print(string) -> "NOTE: Do not use this with user permission status."
+		print(newline)
+	} <-
+#checkroot <-
+
+main() -> main {
+	statement[#checkroot]
+
+	print(string) -> "Clone Scrift."
+	exec(system -> git clone https://github.com/ferhatgec/scrift.git ->)
+
+	print(string) -> "Clone FlaScript."
+	exec(system -> git clone https://github.com/ferhatgec/flascript.git ->)
+
+	print(string) -> "Clone FileSystemPlusPlus."
+	exec(system -> git clone https://github.com/ferhatgec/fsplusplus.git ->)
+
+	print(string) -> "Clone Fetcheya."
+	exec(system -> git clone https://github.com/ferhatgec/fetcheya.git ->)
+
+	print(string) -> "Clone Colorized."
+	exec(system -> git clone https://github.com/ferhatgec/colorized.git ->)
+
+	print(string) -> "Clone Flatcheya."
+	exec(system -> git clone https://github.com/ferhatgec/flatcheya.git ->)
+
+	print(string) -> "Clone StringTools."
+	exec(system -> git clone https://github.com/ferhatgec/stringtools.git ->)
+
+	print(string) -> "Clone FFind."
+	exec(system -> git clone https://github.com/ferhatgec/ffind.git ->)
+
+	print(string) -> "Clone Gemini."
+	exec(system -> git clone https://github.com/ferhatgec/geminiterm.git ->)
+
+	print(string) -> "Clone Copyboard."
+	exec(system -> git clone https://github.com/ferhatgec/copyboard.git ->)
+}
+
